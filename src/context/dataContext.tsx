@@ -21,14 +21,12 @@ const DataContext = createContext<IDataValueContext>({
 
 export const DataProvider = ({ children }: any) => {
   const [search, setSearch] = useState("");
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({});
   const [status, setStatus] = useState("");
 
   return (
     <div>
-      <DataContext.Provider
-        value={{ search, setSearch, data, setData, status, setStatus }}
-      >
+      <DataContext.Provider value={{ search, setSearch, data, setData, status, setStatus }}>
         {children}
       </DataContext.Provider>
     </div>

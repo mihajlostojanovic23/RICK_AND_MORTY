@@ -10,16 +10,12 @@ import DataContext from "../context/dataContext";
   image: string;
 } */
 
-const useCharactersLists = (url: string) => {
+const useCharactersLists = () => {
   const { search, status } = useContext(DataContext);
 
-  const fetchCharacters = async (
-    pageParam = 1,
-    searchParam: any,
-    statusParam: any
-  ) => {
-    const query = `${url}character/?page=${pageParam}
-      ${searchParam !== " " ? `&name=${searchParam}` : ``}&${
+  const fetchCharacters = async (pageParam = 1, searchParam: string, statusParam: string) => {
+    const query = `${process.env.REACT_APP_GET_ALL_CHARACTERS}/?page=${pageParam}
+      ${searchParam !== " " ? `&name=${searchParam.trim()}` : ``}&${
       statusParam !== " " ? `status=${statusParam}` : ``
     }`;
     const response = await fetch(query);
@@ -47,8 +43,7 @@ const useCharactersLists = (url: string) => {
 
   useEffect(() => {
     const onScroll = async (e: any) => {
-      const { scrollHeight, scrollTop, clientHeight } =
-        e.target.scrollingElement;
+      const { scrollHeight, scrollTop, clientHeight } = e.target.scrollingElement;
 
       if (!isFetching && scrollHeight - scrollTop <= clientHeight * 1.5) {
         if (hasNextPage) {

@@ -2,9 +2,7 @@ import Card from "../Card/Card";
 import useCharactersLists from "../../hooks/useCharacter";
 import React from "react";
 const CharactersLists: React.FC = () => {
-  const { Data, Status }: { Data: any; Status: string } = useCharactersLists(
-    process.env.REACT_APP_GET_ALL_CHARACTERS!
-  );
+  const { Data, Status }: { Data: any; Status: string } = useCharactersLists();
   return (
     <>
       {Status === "loading" && <div>Loading...</div>}

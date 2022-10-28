@@ -12,9 +12,7 @@ export default function CharactersStatus() {
   return (
     <div className="character-status">
       <FormControl>
-        <FormLabel id="demo-radio-buttons-group-label">
-          Character Status: {status}
-        </FormLabel>
+        <FormLabel id="demo-radio-buttons-group-label">Character Status: {status}</FormLabel>
         <RadioGroup
           aria-labelledby="demo-radio-buttons-group-label"
           defaultValue="female"

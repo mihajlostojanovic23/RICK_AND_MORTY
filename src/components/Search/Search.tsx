@@ -13,12 +13,7 @@ const Search: React.FC = () => {
   const { setSearch } = useContext(DataContext);
   return (
     <>
-      <TextField
-        onChange={set}
-        id="outlined-search"
-        label="Search"
-        type="search"
-      />
+      <TextField onChange={set} id="outlined-search" label="Search" type="search" />
     </>
   );
 };
